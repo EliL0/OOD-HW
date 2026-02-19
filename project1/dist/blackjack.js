@@ -146,10 +146,12 @@ class Player {
         if (this.score > 21) {
             // check/correct for aces
             for (let i = 0; i < this.hand.length; i++) {
-                if (this.hand[i][1] == "Ace") {
+                if (this.hand[i][1] == "Ace" && this.hand[i][2] == 11) {
                     this.hand[i][2] = 1;
                     this.score = this.score - 10;
-                    break;
+                    if (this.score > 21) {
+                        break;
+                    }
                 }
             }
             if (this.score > 21) {
