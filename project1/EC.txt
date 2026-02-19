@@ -1,1 +1,1 @@
-
+I added a menu for the player to decide if they want to keep playing or not (+5%)
