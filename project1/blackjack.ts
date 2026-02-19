@@ -200,9 +200,9 @@ const c: Cards = new Cards();
 const cards: Card[] = c.getCards();
 
 // Game Loop
-let play = 'p';
+let play = '';
 
- while(play === 'p'){    
+ while(play !== 'q'){    
     const gameDeck: Deck = new Deck(cards);
 
     const player: Player = new Player("You", gameDeck.dealCard(), gameDeck.dealCard());
@@ -225,9 +225,8 @@ let play = 'p';
     } else {
         console.log(player.getName() + " Can't Beat Dealer's Score. Dealer Wins...");
     }
-    while (play !== 'p' && play !== 'q'){
-        play = readline.question('Would you like to (p)lay again or (q)uit? (type \'p\' or \'q\' to select)');
+    play = readline.question('Would you like to (p)lay again or (q)uit? (type \'p\' or \'q\' to select)');
+    if(play !== 'p' && play !== 'q'){
+        throw new Error("Illegal Response");
     }
 }
-
-
